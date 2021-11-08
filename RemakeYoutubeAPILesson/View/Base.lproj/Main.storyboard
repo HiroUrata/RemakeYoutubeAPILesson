@@ -51,16 +51,9 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <imageReference key="image" image="magnifyingglass" catalog="system" symbolScale="large"/>
                                 </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u2M-dL-o5R">
-                                <rect key="frame" x="353" y="44" width="41" height="41"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="41" id="RQz-dB-VVL"/>
-                                    <constraint firstAttribute="width" constant="41" id="SYk-gt-Aj3"/>
-                                </constraints>
-                                <state key="normal">
-                                    <imageReference key="image" image="gearshape" catalog="system" symbolScale="large"/>
-                                </state>
+                                <connections>
+                                    <action selector="videoSearch:" destination="1Zl-Cv-dLY" eventType="touchUpInside" id="XSH-N6-gw8"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TopVideoLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SGX-ZR-9tW">
                                 <rect key="frame" x="20" y="49" width="290" height="31"/>
@@ -72,6 +65,19 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u2M-dL-o5R">
+                                <rect key="frame" x="353" y="44" width="41" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="RQz-dB-VVL"/>
+                                    <constraint firstAttribute="width" constant="41" id="SYk-gt-Aj3"/>
+                                </constraints>
+                                <state key="normal">
+                                    <imageReference key="image" image="gearshape" catalog="system" symbolScale="large"/>
+                                </state>
+                                <connections>
+                                    <action selector="defaultSearchWordSetting:" destination="1Zl-Cv-dLY" eventType="touchUpInside" id="VBS-9l-OSu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jIG-U9-mUf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -98,7 +104,7 @@
                     <navigationItem key="navigationItem" id="YWh-UF-SeF"/>
                     <connections>
                         <outlet property="currentSituationLabel" destination="SGX-ZR-9tW" id="sPj-ye-eLK"/>
-                        <outlet property="defaltSearchWordSettingButton" destination="u2M-dL-o5R" id="HiG-AT-HNn"/>
+                        <outlet property="defaultSearchWordSettingButton" destination="u2M-dL-o5R" id="Hiw-YF-TB4"/>
                         <outlet property="searchButton" destination="zPd-7v-jOD" id="pRP-bK-vH0"/>
                         <outlet property="searchTextField" destination="cPr-zk-bCf" id="z9d-go-k4u"/>
                         <outlet property="topVideoTableView" destination="sex-cc-vlE" id="ZlP-yC-a9P"/>

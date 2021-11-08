@@ -11,7 +11,7 @@ import SDWebImage
 class TopVideosViewController: UIViewController {
 
     @IBOutlet weak var currentSituationLabel: UILabel!
-    @IBOutlet weak var defaltSearchWordSettingButton: UIButton!
+    @IBOutlet weak var defaultSearchWordSettingButton: UIButton!
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var topVideoTableView: UITableView!
@@ -41,13 +41,42 @@ class TopVideosViewController: UIViewController {
                     
                     return
                 }
+                
                 cellContentsArray = results!
                 topVideoTableView.reloadData()
-                
             }
         }
     }
     
+    @IBAction func defaultSearchWordSetting(_ sender: UIButton) {
+        
+        
+    }
+    
+    @IBAction func videoSearch(_ sender: UIButton) {
+        
+        if searchTextField.text?.isEmpty != true{
+            
+            alamofireProess.getYoutubeDatas(searchKeyword: searchTextField.text) {[self] results, error, string in
+                
+                if error != nil || string != nil{
+                    
+                    return
+                }
+                
+                showAnimation(showContent: "5", animationTime: 5, targetView: view) { judgeBool in
+                    
+                    if judgeBool == false{
+                        
+                        return
+                    }
+                    cellContentsArray = results!
+                    topVideoTableView.reloadData()
+                    
+                }
+            }
+        }
+    }
 }
 
 

@@ -11,6 +11,7 @@
 		54D5526F273928B100F0DA90 /* TopVideosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D5526C273928B100F0DA90 /* TopVideosViewController.swift */; };
 		54D55270273928B100F0DA90 /* TrendyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D5526D273928B100F0DA90 /* TrendyViewController.swift */; };
 		54D55271273928B100F0DA90 /* MyFavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D5526E273928B100F0DA90 /* MyFavoriteViewController.swift */; };
+		54D5527527392D0900F0DA90 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D5527427392D0900F0DA90 /* Alert.swift */; };
 		54D59DCE2739282D00CC93BE /* AlamofireProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D59DCC2739282D00CC93BE /* AlamofireProcess.swift */; };
 		54D59DCF2739282D00CC93BE /* VideoDetailDatas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D59DCD2739282D00CC93BE /* VideoDetailDatas.swift */; };
 		54D59DD42739285000CC93BE /* TableViewCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54D59DD02739284F00CC93BE /* TableViewCustomCell.xib */; };
@@ -31,6 +32,7 @@
 		54D5526C273928B100F0DA90 /* TopVideosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopVideosViewController.swift; sourceTree = "<group>"; };
 		54D5526D273928B100F0DA90 /* TrendyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendyViewController.swift; sourceTree = "<group>"; };
 		54D5526E273928B100F0DA90 /* MyFavoriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyFavoriteViewController.swift; sourceTree = "<group>"; };
+		54D5527427392D0900F0DA90 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		54D59DCC2739282D00CC93BE /* AlamofireProcess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireProcess.swift; sourceTree = "<group>"; };
 		54D59DCD2739282D00CC93BE /* VideoDetailDatas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoDetailDatas.swift; sourceTree = "<group>"; };
 		54D59DD02739284F00CC93BE /* TableViewCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCustomCell.xib; sourceTree = "<group>"; };
@@ -87,6 +89,14 @@
 			path = TabBarItemController;
 			sourceTree = "<group>";
 		};
+		54D5527327392CAF00F0DA90 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				54D5527427392D0900F0DA90 /* Alert.swift */,
+			);
+			path = Alert;
+			sourceTree = "<group>";
+		};
 		54D59DC92739276300CC93BE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +113,7 @@
 				54E679C1273926E500035446 /* Assets.xcassets */,
 				54D552692739288300F0DA90 /* Lottie */,
 				54D59DD82739285600CC93BE /* TableViewCell */,
+				54D5527327392CAF00F0DA90 /* Alert */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -290,6 +301,7 @@
 				54D55270273928B100F0DA90 /* TrendyViewController.swift in Sources */,
 				54D5526F273928B100F0DA90 /* TopVideosViewController.swift in Sources */,
 				54D5526B273928A500F0DA90 /* TabBarController.swift in Sources */,
+				54D5527527392D0900F0DA90 /* Alert.swift in Sources */,
 				54E679BB273926E200035446 /* SceneDelegate.swift in Sources */,
 				54D59DD52739285000CC93BE /* LottieAnimation.swift in Sources */,
 			);
