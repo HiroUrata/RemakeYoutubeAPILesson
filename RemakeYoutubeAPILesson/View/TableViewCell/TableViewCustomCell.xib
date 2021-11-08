@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="VideoDetailCell" rowHeight="341" id="KGk-i7-Jjw" customClass="TableViewCustomCell" customModule="YoutubeAPILessonApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="341"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="341"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hoV-1f-N2X">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="253"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="253" id="2JP-ph-p2q"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VideoTitle" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kzb-BC-5mM">
+                        <rect key="frame" x="20" y="261" width="374" height="29"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="29" id="mwH-4H-nYR"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ChannelName" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qru-yS-rdt">
+                        <rect key="frame" x="20" y="298" width="374" height="29"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="29" id="LZq-fS-J8c"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="qru-yS-rdt" firstAttribute="top" secondItem="kzb-BC-5mM" secondAttribute="bottom" constant="8" id="1SC-qC-ShL"/>
+                    <constraint firstAttribute="bottom" secondItem="qru-yS-rdt" secondAttribute="bottom" constant="14" id="4fb-ad-upW"/>
+                    <constraint firstItem="kzb-BC-5mM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="Mlm-W8-A0i"/>
+                    <constraint firstAttribute="trailing" secondItem="hoV-1f-N2X" secondAttribute="trailing" id="Vbj-29-wNA"/>
+                    <constraint firstItem="qru-yS-rdt" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="Yew-Zb-oD1"/>
+                    <constraint firstAttribute="trailing" secondItem="kzb-BC-5mM" secondAttribute="trailing" constant="20" id="hHp-kX-stJ"/>
+                    <constraint firstItem="hoV-1f-N2X" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="mhM-Pb-qMG"/>
+                    <constraint firstItem="kzb-BC-5mM" firstAttribute="top" secondItem="hoV-1f-N2X" secondAttribute="bottom" constant="8" id="nUV-1N-GEr"/>
+                    <constraint firstAttribute="trailing" secondItem="qru-yS-rdt" secondAttribute="trailing" constant="20" id="sqh-tG-uHK"/>
+                    <constraint firstItem="hoV-1f-N2X" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="yKG-Qx-Hgb"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="channelNameLabel" destination="qru-yS-rdt" id="woj-Tj-15Z"/>
+                <outlet property="thumbnailImageView" destination="hoV-1f-N2X" id="m6d-V6-NLy"/>
+                <outlet property="videoTitleLabel" destination="kzb-BC-5mM" id="cwg-fd-BF3"/>
+            </connections>
+            <point key="canvasLocation" x="30.434782608695656" y="148.32589285714286"/>
+        </tableViewCell>
+    </objects>
+</document>
