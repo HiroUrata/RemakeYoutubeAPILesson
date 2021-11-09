@@ -13,8 +13,11 @@ class AlamofireProcess{
     private var privateThumbnailImageURL:String?
     private var privateTitle:String?
     private var privateChannelTitle:String?
+    private var privateVideoId:String?
+    private var privateDescription:String?
     
     private var privateVideoDetailArray = [VideoDetailDatas]()
+    private var privateVideoPlayerContentsArray = [VideoPlayerContents]()
 }
 
 
@@ -41,16 +44,25 @@ extension AlamofireProcess{
                     
                     getDatasNilCheck(getImageURL: detailDatas["items"][dataCount]["snippet"]["thumbnails"]["medium"]["url"].string,
                                      getTitle: detailDatas["items"][dataCount]["snippet"]["title"].string,
-                                     getChannelTitle: detailDatas["items"][dataCount]["snippet"]["channelTitle"].string)
+                                     getChannelTitle: detailDatas["items"][dataCount]["snippet"]["channelTitle"].string,
+                                     getVideoId: detailDatas["items"][dataCount]["id"]["videoId"].string,
+                                     getDescription: detailDatas["items"][dataCount]["snippet"]["description"].string)
                     
                     if detailDatas["items"][dataCount]["id"]["channelId"].string != privateChannelTitle{
                         
+                        
+                        
                         privateVideoDetailArray.append(VideoDetailDatas(thumbnailImageURL:privateThumbnailImageURL,
                                                                         title: privateTitle,
-                                                                        channelTitle: privateChannelTitle))
+                                                                        channelTitle: privateChannelTitle,
+                                                                        videoPlayerContents: VideoPlayerContents(videoId: privateVideoId,
+                                                                                                                 description: privateDescription)))
+                        
                         print(privateThumbnailImageURL as Any) //テスト
                         print(privateTitle as Any)//テスト
                         print(privateChannelTitle as Any)//テスト
+                        print(privateVideoId as Any) //テスト
+                        print(privateDescription as Any) //テスト
                     }
                 }
                 completion(privateVideoDetailArray, nil, nil)
@@ -66,7 +78,7 @@ extension AlamofireProcess{
 
 extension AlamofireProcess{
     
-    private func getDatasNilCheck(getImageURL:String?,getTitle:String?,getChannelTitle:String?){
+    private func getDatasNilCheck(getImageURL:String?,getTitle:String?,getChannelTitle:String?,getVideoId:String?,getDescription:String?){
         
         if getImageURL != nil{
             
@@ -90,6 +102,22 @@ extension AlamofireProcess{
         }else{
             
             privateChannelTitle = "読み込みエラー"
+        }
+        
+        if getVideoId != nil{
+            
+            privateVideoId = getVideoId
+        }else{
+            
+            privateVideoId = "読み込みエラー"
+        }
+        
+        if getDescription != nil{
+            
+            privateDescription = getDescription
+        }else{
+            
+            privateDescription = "読み込みエラー"
         }
     }
 }

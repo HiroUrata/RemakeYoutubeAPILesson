@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5470219F273A1FAE00D5E6ED /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5470219D273A1FAE00D5E6ED /* VideoPlayerViewController.swift */; };
+		547021A0273A1FAE00D5E6ED /* VideoPlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5470219E273A1FAE00D5E6ED /* VideoPlayerViewController.xib */; };
 		5492B648273A08C6002008C3 /* TopVideosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5492B647273A08C6002008C3 /* TopVideosViewController.swift */; };
 		54D5526B273928A500F0DA90 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D5526A273928A500F0DA90 /* TabBarController.swift */; };
 		54D55270273928B100F0DA90 /* TrendyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D5526D273928B100F0DA90 /* TrendyViewController.swift */; };
@@ -28,6 +30,8 @@
 
 /* Begin PBXFileReference section */
 		02D73291C46F874C58670D1B /* Pods_RemakeYoutubeAPILesson.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RemakeYoutubeAPILesson.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5470219D273A1FAE00D5E6ED /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
+		5470219E273A1FAE00D5E6ED /* VideoPlayerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoPlayerViewController.xib; sourceTree = "<group>"; };
 		5492B647273A08C6002008C3 /* TopVideosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopVideosViewController.swift; sourceTree = "<group>"; };
 		54D5526A273928A500F0DA90 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		54D5526D273928B100F0DA90 /* TrendyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendyViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +72,15 @@
 				02D73291C46F874C58670D1B /* Pods_RemakeYoutubeAPILesson.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		547021A1273A1FB700D5E6ED /* VideoPlayerView */ = {
+			isa = PBXGroup;
+			children = (
+				5470219D273A1FAE00D5E6ED /* VideoPlayerViewController.swift */,
+				5470219E273A1FAE00D5E6ED /* VideoPlayerViewController.xib */,
+			);
+			path = VideoPlayerView;
 			sourceTree = "<group>";
 		};
 		54D552692739288300F0DA90 /* Lottie */ = {
@@ -114,6 +127,7 @@
 				54D552692739288300F0DA90 /* Lottie */,
 				54D59DD82739285600CC93BE /* TableViewCell */,
 				54D5527327392CAF00F0DA90 /* Alert */,
+				547021A1273A1FB700D5E6ED /* VideoPlayerView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -237,6 +251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				54D59DD62739285000CC93BE /* 5.json in Resources */,
+				547021A0273A1FAE00D5E6ED /* VideoPlayerViewController.xib in Resources */,
 				54E679C5273926E500035446 /* LaunchScreen.storyboard in Resources */,
 				54E679C2273926E500035446 /* Assets.xcassets in Resources */,
 				54D59DD42739285000CC93BE /* TableViewCustomCell.xib in Resources */,
@@ -302,6 +317,7 @@
 				54D55270273928B100F0DA90 /* TrendyViewController.swift in Sources */,
 				54D5526B273928A500F0DA90 /* TabBarController.swift in Sources */,
 				54D5527527392D0900F0DA90 /* Alert.swift in Sources */,
+				5470219F273A1FAE00D5E6ED /* VideoPlayerViewController.swift in Sources */,
 				54E679BB273926E200035446 /* SceneDelegate.swift in Sources */,
 				54D59DD52739285000CC93BE /* LottieAnimation.swift in Sources */,
 			);

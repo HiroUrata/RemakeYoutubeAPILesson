@@ -10,7 +10,6 @@ import SDWebImage
 
 class TopVideosViewController: UIViewController {
 
-    
     @IBOutlet weak var nowSituationLabel: UILabel!
     @IBOutlet weak var searchKeyTextfield: UITextField!
     @IBOutlet weak var videoSearchButton: UIButton!
@@ -27,29 +26,37 @@ class TopVideosViewController: UIViewController {
         searchResultTableView.register(UINib(nibName: "TableViewCustomCell", bundle: nil), forCellReuseIdentifier: "VideoDetailCell")
         searchResultTableView.delegate = self
         searchResultTableView.dataSource = self
-        
-        //画面を開いた時に表示したい内容
-        alamofireProess.getYoutubeDatas(searchKeyword: "五等分の花嫁") {[self] results, error, string in
             
-            if error != nil || string != nil{
+            //画面を開いた時に表示したい内容
+            alamofireProess.getYoutubeDatas(searchKeyword: UserDefaults.standard.string(forKey: "SearchKey")) {[self] results, error, string in
                 
-                alert.warningAlert(alertContent: string!, targetView: self)
-                return
-            }
-            
-            showAnimation(showContent: "5", animationTime: 5, targetView: view) { judgeBool in
-                
-                if judgeBool == false{
+                if error != nil || string != nil{
                     
+                    alert.warningAlert(alertContent: string!, targetView: self)
                     return
                 }
                 
-                cellContentsArray = results!
-                searchResultTableView.reloadData()
+                showAnimation(showContent: "5", animationTime: 5, targetView: view) { judgeBool in
+                    
+                    if judgeBool == false{
+                        
+                        return
+                    }
+                    
+                    cellContentsArray = results!
+                    searchResultTableView.reloadData()
+                }
             }
         }
-    }
+        
+    
 
+    @IBAction func defaultSearchKeySetting(_ sender: UIButton) {
+        
+        alert.defaultSearchKeyWordChangeAlert(targetView: self)
+    }
+    
+    
     @IBAction func videoSearch(_ sender: UIButton) {
         
         if searchKeyTextfield.text?.isEmpty != true{
@@ -74,9 +81,11 @@ class TopVideosViewController: UIViewController {
                 }
             }
         }
+        
     }
     
 }
+
 
 extension TopVideosViewController:UITableViewDelegate{
     
@@ -84,7 +93,20 @@ extension TopVideosViewController:UITableViewDelegate{
         
         return tableView.frame.height / 2.3
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let selectCell = tableView.cellForRow(at: indexPath) as! TableViewCustomCell
+        let videoPlayerVC = VideoPlayerViewController()
+        videoPlayerVC.modalPresentationStyle = .automatic
+        videoPlayerVC.playVideoID = cellContentsArray[indexPath.row].videoPlayerContents?.videoId
+        videoPlayerVC.videoTitle = selectCell.videoTitleLabel.text
+        videoPlayerVC.channelName = selectCell.channelNameLabel.text
+        videoPlayerVC.descriptionText = cellContentsArray[indexPath.row].videoPlayerContents?.description
+        self.present(videoPlayerVC, animated: true, completion: nil)
+    }
 }
+
 
 extension TopVideosViewController:UITableViewDataSource{
     
@@ -108,5 +130,20 @@ extension TopVideosViewController:UITableViewDataSource{
         cell.channelNameLabel.text = cellContentsArray[indexPath.row].channelTitle
         
         return cell
+    }
+}
+
+
+extension UIViewController{
+    
+    func sendVideoDetailData(detailDatas:[VideoDetailDatas],detailCount:Int){
+        
+        let videoPlayerVC = VideoPlayerViewController()
+        videoPlayerVC.modalPresentationStyle = .automatic
+        videoPlayerVC.playVideoID = detailDatas[detailCount].videoPlayerContents?.videoId
+        videoPlayerVC.videoTitle = detailDatas[detailCount].title
+        videoPlayerVC.channelName = detailDatas[detailCount].channelTitle
+        videoPlayerVC.descriptionText = detailDatas[detailCount].videoPlayerContents?.description
+        self.present(videoPlayerVC, animated: true, completion: nil)
     }
 }

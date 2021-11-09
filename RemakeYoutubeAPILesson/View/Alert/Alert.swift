@@ -32,8 +32,6 @@ extension Alert{
         alert.addTextField { (searchKeywordInputTextField:UITextField) in
             
             searchKeywordInputTextField.placeholder = "検索キーワードを入力してください"
-            searchKeywordInputTextField.layer.borderColor = UIColor.systemRed.cgColor
-            searchKeywordInputTextField.layer.borderWidth = 3.0
             self.defaultSearchKeyWordInputTextField.text = searchKeywordInputTextField.text
         }
         alert.addAction(UIAlertAction(title: "設定", style: .default, handler: { _ in

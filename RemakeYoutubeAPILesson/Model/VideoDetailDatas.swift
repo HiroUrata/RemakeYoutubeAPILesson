@@ -11,4 +11,11 @@ struct VideoDetailDatas{
     let thumbnailImageURL:String?
     let title:String?
     let channelTitle:String?
+    let videoPlayerContents:VideoPlayerContents?
+}
+
+struct VideoPlayerContents{
+    
+    let videoId:String?
+    let description:String?
 }

@@ -32,6 +32,14 @@ extension MyFavoriteViewController:UITableViewDelegate{
         
         tableView.frame.height / 2.7
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let videoPlayerVC = VideoPlayerViewController()
+        videoPlayerVC.modalPresentationStyle = .automatic
+        self.present(videoPlayerVC, animated: true, completion: nil)
+    }
+    
 }
 
 extension MyFavoriteViewController:UITableViewDataSource{
