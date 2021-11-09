@@ -1,8 +1,8 @@
 //
-//  ViewController.swift
-//  YoutubeAPILessonApp
+//  TopVideosViewController.swift
+//  RemakeYoutubeAPILesson
 //
-//  Created by UrataHiroki on 2021/11/06.
+//  Created by UrataHiroki on 2021/11/09.
 //
 
 import UIKit
@@ -10,28 +10,30 @@ import SDWebImage
 
 class TopVideosViewController: UIViewController {
 
-    @IBOutlet weak var currentSituationLabel: UILabel!
-    @IBOutlet weak var defaultSearchWordSettingButton: UIButton!
-    @IBOutlet weak var searchTextField: UITextField!
-    @IBOutlet weak var searchButton: UIButton!
-    @IBOutlet weak var topVideoTableView: UITableView!
     
+    @IBOutlet weak var nowSituationLabel: UILabel!
+    @IBOutlet weak var searchKeyTextfield: UITextField!
+    @IBOutlet weak var videoSearchButton: UIButton!
+    @IBOutlet weak var searchResultTableView: UITableView!
     
     private let alamofireProess = AlamofireProcess()
+    private let alert = Alert()
     
     private var cellContentsArray = [VideoDetailDatas]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        topVideoTableView.register(UINib(nibName: "TableViewCustomCell", bundle: nil), forCellReuseIdentifier: "VideoDetailCell")
-        topVideoTableView.delegate = self
-        topVideoTableView.dataSource = self
+
+        searchResultTableView.register(UINib(nibName: "TableViewCustomCell", bundle: nil), forCellReuseIdentifier: "VideoDetailCell")
+        searchResultTableView.delegate = self
+        searchResultTableView.dataSource = self
+        
         //画面を開いた時に表示したい内容
         alamofireProess.getYoutubeDatas(searchKeyword: "五等分の花嫁") {[self] results, error, string in
             
             if error != nil || string != nil{
                 
+                alert.warningAlert(alertContent: string!, targetView: self)
                 return
             }
             
@@ -43,24 +45,20 @@ class TopVideosViewController: UIViewController {
                 }
                 
                 cellContentsArray = results!
-                topVideoTableView.reloadData()
+                searchResultTableView.reloadData()
             }
         }
     }
-    
-    @IBAction func defaultSearchWordSetting(_ sender: UIButton) {
-        
-        
-    }
-    
+
     @IBAction func videoSearch(_ sender: UIButton) {
         
-        if searchTextField.text?.isEmpty != true{
+        if searchKeyTextfield.text?.isEmpty != true{
             
-            alamofireProess.getYoutubeDatas(searchKeyword: searchTextField.text) {[self] results, error, string in
+            alamofireProess.getYoutubeDatas(searchKeyword: searchKeyTextfield.text) {[self] results, error, string in
                 
                 if error != nil || string != nil{
                     
+                    alert.warningAlert(alertContent: string!, targetView: self)
                     return
                 }
                 
@@ -71,14 +69,14 @@ class TopVideosViewController: UIViewController {
                         return
                     }
                     cellContentsArray = results!
-                    topVideoTableView.reloadData()
+                    searchResultTableView.reloadData()
                     
                 }
             }
         }
     }
+    
 }
-
 
 extension TopVideosViewController:UITableViewDelegate{
     
@@ -87,7 +85,6 @@ extension TopVideosViewController:UITableViewDelegate{
         return tableView.frame.height / 2.3
     }
 }
-
 
 extension TopVideosViewController:UITableViewDataSource{
     
@@ -112,7 +109,4 @@ extension TopVideosViewController:UITableViewDataSource{
         
         return cell
     }
-    
-    
-    
 }

@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5492B648273A08C6002008C3 /* TopVideosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5492B647273A08C6002008C3 /* TopVideosViewController.swift */; };
 		54D5526B273928A500F0DA90 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D5526A273928A500F0DA90 /* TabBarController.swift */; };
-		54D5526F273928B100F0DA90 /* TopVideosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D5526C273928B100F0DA90 /* TopVideosViewController.swift */; };
 		54D55270273928B100F0DA90 /* TrendyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D5526D273928B100F0DA90 /* TrendyViewController.swift */; };
 		54D55271273928B100F0DA90 /* MyFavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D5526E273928B100F0DA90 /* MyFavoriteViewController.swift */; };
 		54D5527527392D0900F0DA90 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D5527427392D0900F0DA90 /* Alert.swift */; };
@@ -28,8 +28,8 @@
 
 /* Begin PBXFileReference section */
 		02D73291C46F874C58670D1B /* Pods_RemakeYoutubeAPILesson.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RemakeYoutubeAPILesson.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5492B647273A08C6002008C3 /* TopVideosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopVideosViewController.swift; sourceTree = "<group>"; };
 		54D5526A273928A500F0DA90 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		54D5526C273928B100F0DA90 /* TopVideosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopVideosViewController.swift; sourceTree = "<group>"; };
 		54D5526D273928B100F0DA90 /* TrendyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendyViewController.swift; sourceTree = "<group>"; };
 		54D5526E273928B100F0DA90 /* MyFavoriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyFavoriteViewController.swift; sourceTree = "<group>"; };
 		54D5527427392D0900F0DA90 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
@@ -82,7 +82,7 @@
 		54D55272273928B600F0DA90 /* TabBarItemController */ = {
 			isa = PBXGroup;
 			children = (
-				54D5526C273928B100F0DA90 /* TopVideosViewController.swift */,
+				5492B647273A08C6002008C3 /* TopVideosViewController.swift */,
 				54D5526E273928B100F0DA90 /* MyFavoriteViewController.swift */,
 				54D5526D273928B100F0DA90 /* TrendyViewController.swift */,
 			);
@@ -297,9 +297,9 @@
 				54D59DD72739285000CC93BE /* TableViewCustomCell.swift in Sources */,
 				54D59DCF2739282D00CC93BE /* VideoDetailDatas.swift in Sources */,
 				54E679B9273926E200035446 /* AppDelegate.swift in Sources */,
+				5492B648273A08C6002008C3 /* TopVideosViewController.swift in Sources */,
 				54D59DCE2739282D00CC93BE /* AlamofireProcess.swift in Sources */,
 				54D55270273928B100F0DA90 /* TrendyViewController.swift in Sources */,
-				54D5526F273928B100F0DA90 /* TopVideosViewController.swift in Sources */,
 				54D5526B273928A500F0DA90 /* TabBarController.swift in Sources */,
 				54D5527527392D0900F0DA90 /* Alert.swift in Sources */,
 				54E679BB273926E200035446 /* SceneDelegate.swift in Sources */,

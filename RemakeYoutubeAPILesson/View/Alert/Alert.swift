@@ -9,7 +9,7 @@ import UIKit
 
 class Alert{
     
-    private let defaultSearchKeyWord = UITextField()
+    private let defaultSearchKeyWordInputTextField = UITextField()
 }
 
 
@@ -24,4 +24,30 @@ extension Alert{
     }
 }
 
+extension Alert{
+    
+    public func defaultSearchKeyWordChangeAlert(targetView:UIViewController){
+        
+        let alert = UIAlertController(title: "設定アラート", message: "アプリを起動した時に一覧に表示させる動画の検索キーワードを設定して下さい", preferredStyle: .alert)
+        alert.addTextField { (searchKeywordInputTextField:UITextField) in
+            
+            searchKeywordInputTextField.placeholder = "検索キーワードを入力してください"
+            searchKeywordInputTextField.layer.borderColor = UIColor.systemRed.cgColor
+            searchKeywordInputTextField.layer.borderWidth = 3.0
+            self.defaultSearchKeyWordInputTextField.text = searchKeywordInputTextField.text
+        }
+        alert.addAction(UIAlertAction(title: "設定", style: .default, handler: { _ in
+            
+            if self.defaultSearchKeyWordInputTextField.text?.isEmpty != true{
+                
+                UserDefaults.standard.setValue(self.defaultSearchKeyWordInputTextField.text, forKey: "SearchKey")
+            }
+            
+        }))
+        
+        alert.addAction(UIAlertAction(title: "キャンセル", style: .cancel, handler: nil))
+        
+        targetView.present(alert, animated: true, completion: nil)
+    }
+}
 
