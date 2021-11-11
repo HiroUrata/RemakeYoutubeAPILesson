@@ -71,3 +71,24 @@ extension RealmCRUD{
     }
 }
 
+
+extension RealmCRUD{
+    
+    public func deleteFavoriteVideoData(tapCellNumber:Int?,targetView:UIViewController){
+        
+        guard let number = tapCellNumber else { return }
+        
+        do{
+            
+            let realm = try Realm()
+            
+            try realm.write({
+                
+                realm.delete(realm.objects(RealmFavoriteVideoDatas.self)[number])
+            })
+        }catch{
+         
+            alert.warningAlert(alertContent: "データの削除に失敗しました。", targetView: targetView)
+        }
+    }
+}
