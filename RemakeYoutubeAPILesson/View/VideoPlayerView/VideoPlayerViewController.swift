@@ -21,11 +21,13 @@ class VideoPlayerViewController: UIViewController {
     public var channelName:String?
     public var descriptionText:String?
     
-    private let videoPlayer = YTPlayerView()
+    public let videoPlayer = YTPlayerView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        print("~~~~~~~~~~~カウントは\(videoPlayerView.subviews.count)~~~~~~~~~~~~")
+        
         videoTitleLabel.text = videoTitle
         channelNameLabel.text = channelName
         descriptionTextView.text = descriptionText
@@ -33,7 +35,7 @@ class VideoPlayerViewController: UIViewController {
         videoPlayer.frame = videoPlayerView.frame
         videoPlayer.load(withVideoId: playVideoID!, playerVars: ["playersinline":1])
         videoPlayerView.addSubview(videoPlayer)
-        
+        print("~~~~~~~~~~~カウントは\(videoPlayerView.subviews.count)~~~~~~~~~~~~")
         videoPlayer.delegate = self
     }
     
@@ -41,11 +43,6 @@ class VideoPlayerViewController: UIViewController {
         super.viewWillAppear(animated)
         
         
-    }
-    
-    @IBAction func stop(_ sender: Any) {
-        
-        videoPlayer.stopVideo()
     }
     
 }
@@ -56,5 +53,17 @@ extension VideoPlayerViewController:YTPlayerViewDelegate{
     func playerViewDidBecomeReady(_ playerView: YTPlayerView) {
         
         videoPlayer.playVideo()
+    }
+}
+
+
+extension VideoPlayerViewController{
+    
+    override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
+        super.dismiss(animated: flag, completion: completion)
+        
+        guard let presentationController = presentationController else { return }
+        
+        presentationController.delegate?.presentationControllerDidDismiss?(presentationController)
     }
 }

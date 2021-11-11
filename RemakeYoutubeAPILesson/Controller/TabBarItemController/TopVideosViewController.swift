@@ -96,14 +96,7 @@ extension TopVideosViewController:UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let selectCell = tableView.cellForRow(at: indexPath) as! TableViewCustomCell
-        let videoPlayerVC = VideoPlayerViewController()
-        videoPlayerVC.modalPresentationStyle = .automatic
-        videoPlayerVC.playVideoID = cellContentsArray[indexPath.row].videoPlayerContents?.videoId
-        videoPlayerVC.videoTitle = selectCell.videoTitleLabel.text
-        videoPlayerVC.channelName = selectCell.channelNameLabel.text
-        videoPlayerVC.descriptionText = cellContentsArray[indexPath.row].videoPlayerContents?.description
-        self.present(videoPlayerVC, animated: true, completion: nil)
+        sendVideoDetailData(detailDatas: cellContentsArray, detailCount: indexPath.row, selectCell: tableView.cellForRow(at: indexPath) as! TableViewCustomCell)
     }
 }
 
@@ -119,12 +112,12 @@ extension TopVideosViewController:UITableViewDataSource{
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "VideoDetailCell", for: indexPath) as! TableViewCustomCell
         
-        if cellContentsArray[indexPath.row].thumbnailImageURL == "nosign"{
-            
-            cell.thumbnailImageView.image = UIImage(systemName: "nosign")
-        }else{
+        if cellContentsArray[indexPath.row].thumbnailImageURL != "nosign"{
             
             cell.thumbnailImageView.sd_setImage(with: URL(string: cellContentsArray[indexPath.row].thumbnailImageURL!), completed: nil)
+        }else{
+            
+            cell.thumbnailImageView.image = UIImage(systemName: "nosign")
         }
         cell.videoTitleLabel.text = cellContentsArray[indexPath.row].title
         cell.channelNameLabel.text = cellContentsArray[indexPath.row].channelTitle
@@ -134,16 +127,33 @@ extension TopVideosViewController:UITableViewDataSource{
 }
 
 
-extension UIViewController{
+extension TopVideosViewController:UIAdaptivePresentationControllerDelegate{
+    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        
+        let videoPlayerVC = VideoPlayerViewController()
+        videoPlayerVC.videoPlayer.removeFromSuperview()
+        
+        
+        
+    }
     
-    func sendVideoDetailData(detailDatas:[VideoDetailDatas],detailCount:Int){
+}
+
+
+extension TopVideosViewController{
+    
+    func sendVideoDetailData(detailDatas:[VideoDetailDatas],detailCount:Int,selectCell:TableViewCustomCell){
         
         let videoPlayerVC = VideoPlayerViewController()
         videoPlayerVC.modalPresentationStyle = .automatic
+        videoPlayerVC.presentationController?.delegate = self
         videoPlayerVC.playVideoID = detailDatas[detailCount].videoPlayerContents?.videoId
-        videoPlayerVC.videoTitle = detailDatas[detailCount].title
-        videoPlayerVC.channelName = detailDatas[detailCount].channelTitle
+        videoPlayerVC.videoTitle = selectCell.videoTitleLabel.text
+        videoPlayerVC.channelName = selectCell.channelNameLabel.text
         videoPlayerVC.descriptionText = detailDatas[detailCount].videoPlayerContents?.description
         self.present(videoPlayerVC, animated: true, completion: nil)
     }
 }
+
+
+

@@ -13,6 +13,8 @@ class MyFavoriteViewController: UIViewController {
     
     @IBOutlet weak var myFavoriteTableView: UITableView!
     
+    public var favoriteCellContentsArray:[[String:String]] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
