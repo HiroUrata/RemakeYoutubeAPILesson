@@ -92,3 +92,59 @@ extension RealmCRUD{
         }
     }
 }
+
+
+extension RealmCRUD{
+    
+    public func createSearchDefaultKey(targetKey:String?){
+        
+        guard let key = targetKey else { return }
+        do{
+            
+            let realm = try Realm()
+            let topVideoDefaultKey = RealmTopVideoDefaultKey()
+            
+            topVideoDefaultKey.topVideoDefaultSearchKey = key
+            
+            try realm.write({
+            
+                realm.add(topVideoDefaultKey)
+            })
+        }catch{
+            
+            
+        }
+    }
+}
+
+
+extension RealmCRUD{
+    
+    public func readSearchDefaultKey() -> String{
+           
+            let realm = try! Realm()
+            return realm.objects(RealmTopVideoDefaultKey.self)[0].topVideoDefaultSearchKey!
+        }
+}
+
+
+extension RealmCRUD{
+
+    public func updateSearchDefaultKey(targetKey:String?){
+
+        guard let key = targetKey else { return }
+        
+        do{
+            let realm = try Realm()
+
+            try realm.write({
+                
+                realm.objects(RealmTopVideoDefaultKey.self)[0].topVideoDefaultSearchKey = key
+            })
+
+        }catch{
+
+
+        }
+    }
+}

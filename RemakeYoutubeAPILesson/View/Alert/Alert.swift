@@ -36,10 +36,12 @@ extension Alert{
         }
         alert.addAction(UIAlertAction(title: "設定", style: .default, handler: { _ in
             
-            if self.defaultSearchKeyWordInputTextField.text?.isEmpty != true{
+//            if self.defaultSearchKeyWordInputTextField.text!.count > 0{
                 
-                UserDefaults.standard.setValue(self.defaultSearchKeyWordInputTextField.text, forKey: "SearchKey")
-            }
+                //UserDefaults.standard.setValue(self.defaultSearchKeyWordInputTextField.text, forKey: "SearchKey")
+                UserDefaults.standard.set(self.defaultSearchKeyWordInputTextField.text, forKey: "SearchKey")
+                print(UserDefaults.standard.object(forKey: "SearchKey")!)
+            //}
             
         }))
         

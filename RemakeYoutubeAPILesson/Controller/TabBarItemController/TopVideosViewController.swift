@@ -30,6 +30,7 @@ class TopVideosViewController: UIViewController {
             //画面を開いた時に表示したい内容
             alamofireProess.getYoutubeDatas(searchKeyword: UserDefaults.standard.string(forKey: "SearchKey")) {[self] results, error, string in
                 
+                print(UserDefaults.standard.string(forKey: "SearchKey") as Any)
                 if error != nil || string != nil{
                     
                     alert.warningAlert(alertContent: string!, targetView: self)

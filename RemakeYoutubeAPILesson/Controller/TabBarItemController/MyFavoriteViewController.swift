@@ -10,8 +10,9 @@ import SDWebImage
 
 class MyFavoriteViewController: UIViewController {
 
-    
     @IBOutlet weak var myFavoriteTableView: UITableView!
+    
+    private let realmCRUD = RealmCRUD()
     
     public var favoriteCellContentsArray:[[String:String]] = []
     
