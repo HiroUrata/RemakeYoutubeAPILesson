@@ -96,7 +96,7 @@ extension RealmCRUD{
 
 extension RealmCRUD{
     
-    public func createSearchDefaultKey(targetKey:String?){
+    public func createSearchDefaultKey(targetKey:String?,targetView:UIViewController){
         
         guard let key = targetKey else { return }
         do{
@@ -112,7 +112,7 @@ extension RealmCRUD{
             })
         }catch{
             
-            
+            alert.warningAlert(alertContent: "設定に失敗しました。", targetView: targetView)
         }
     }
 }
@@ -120,17 +120,26 @@ extension RealmCRUD{
 
 extension RealmCRUD{
     
-    public func readSearchDefaultKey() -> String{
-           
-            let realm = try! Realm()
-            return realm.objects(RealmTopVideoDefaultKey.self)[0].topVideoDefaultSearchKey!
+    public func readSearchDefaultKey(complation:(String?) -> Void){
+        
+        let realm = try! Realm()
+        
+        if realm.objects(RealmTopVideoDefaultKey.self)[0].topVideoDefaultSearchKey! != ""{
+            
+            return complation(realm.objects(RealmTopVideoDefaultKey.self)[0].topVideoDefaultSearchKey)
+        }else{
+            print("RealmTopVideoDefaultKey.self)[0].topVideoDefaultSearchKey -> nil")
+            return complation(nil)
         }
+        
+        
+    }
 }
 
 
 extension RealmCRUD{
 
-    public func updateSearchDefaultKey(targetKey:String?){
+    public func updateSearchDefaultKey(targetKey:String?,targetView:UIViewController){
 
         guard let key = targetKey else { return }
         
@@ -144,6 +153,7 @@ extension RealmCRUD{
 
         }catch{
 
+            alert.warningAlert(alertContent: "変更に失敗しました。", targetView: targetView)
 
         }
     }

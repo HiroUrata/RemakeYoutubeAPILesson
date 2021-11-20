@@ -16,6 +16,7 @@ class TopVideosViewController: UIViewController {
     @IBOutlet weak var searchResultTableView: UITableView!
     
     private let alamofireProess = AlamofireProcess()
+    private let realmCRUD = RealmCRUD()
     private let alert = Alert()
     
     private var cellContentsArray = [VideoDetailDatas]()
@@ -28,9 +29,8 @@ class TopVideosViewController: UIViewController {
         searchResultTableView.dataSource = self
             
             //画面を開いた時に表示したい内容
-            alamofireProess.getYoutubeDatas(searchKeyword: UserDefaults.standard.string(forKey: "SearchKey")) {[self] results, error, string in
+        alamofireProess.getYoutubeDatas(searchKeyword: realmCRUD.readSearchDefaultKey()) {[self] results, error, string in
                 
-                print(UserDefaults.standard.string(forKey: "SearchKey") as Any)
                 if error != nil || string != nil{
                     
                     alert.warningAlert(alertContent: string!, targetView: self)

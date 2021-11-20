@@ -9,7 +9,7 @@ import UIKit
 
 class Alert{
     
-    private let defaultSearchKeyWordInputTextField = UITextField()
+    let realmCRUD = RealmCRUD()
 }
 
 
@@ -28,20 +28,20 @@ extension Alert{
     
     public func defaultSearchKeyWordChangeAlert(targetView:UIViewController){
         
+        let defaultSearchKeyWordInputTextField = UITextField()
+        
         let alert = UIAlertController(title: "設定アラート", message: "アプリを起動した時に一覧に表示させる動画の検索キーワードを設定して下さい", preferredStyle: .alert)
         alert.addTextField { (searchKeywordInputTextField:UITextField) in
             
             searchKeywordInputTextField.placeholder = "検索キーワードを入力してください"
-            self.defaultSearchKeyWordInputTextField.text = searchKeywordInputTextField.text
+            defaultSearchKeyWordInputTextField.text = searchKeywordInputTextField.text
         }
-        alert.addAction(UIAlertAction(title: "設定", style: .default, handler: { _ in
+        alert.addAction(UIAlertAction(title: "設定", style: .default, handler: {[self] _ in
             
-//            if self.defaultSearchKeyWordInputTextField.text!.count > 0{
+            if defaultSearchKeyWordInputTextField.text!.count > 0{
                 
-                //UserDefaults.standard.setValue(self.defaultSearchKeyWordInputTextField.text, forKey: "SearchKey")
-                UserDefaults.standard.set(self.defaultSearchKeyWordInputTextField.text, forKey: "SearchKey")
-                print(UserDefaults.standard.object(forKey: "SearchKey")!)
-            //}
+                realmCRUD.createSearchDefaultKey(targetKey: defaultSearchKeyWordInputTextField.text, targetView: targetView)
+            }
             
         }))
         
